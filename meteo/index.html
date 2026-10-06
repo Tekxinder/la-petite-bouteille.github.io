@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdf9f2">
+  <title>Météo de France — Le bulletin du jour</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../theme.css">
+</head>
+<body>
+  <main class="layout">
+    <header class="masthead app-masthead">
+      <a class="masthead-mark" href="../index.html" aria-label="Retour au hub">LB</a>
+      <div class="masthead-copy">
+        <p class="eyebrow">LA PETITE BOUTEILLE</p>
+        <h1>La météo, à la une<span>.</span></h1>
+      </div>
+      <div class="masthead-date"><span id="todayHeader"></span></div>
+    </header>
+    <section class="controls" aria-labelledby="title">
+      <fieldset>
+        <legend>Vos villes <span>6 maximum · Paris toujours incluse</span></legend>
+        <div id="cityList" class="city-list"></div>
+      </fieldset>
+
+      <div class="actions">
+        <button class="button button--light" id="presetButton" type="button">✦ Les 5 villes proposées</button>
+        <button class="button button--light" id="randomButton" type="button">↻ Tirage au hasard + Paris</button>
+        <button class="button button--test" id="testButton" type="button" aria-pressed="false">▧ Tester les pictogrammes</button>
+      </div>
+      <p id="status" class="status" role="status">Chargement des prévisions…</p>
+      <p class="credit">Prévisions du jour via <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> · mise à jour à l’export.</p>
+    </section>
+
+    <section class="preview-wrap" aria-label="Aperçu de la carte météo">
+      <div class="preview-heading"><span>APERÇU</span><span id="previewDate"></span></div>
+      <div class="paper-frame"><canvas id="weatherCanvas" width="600" height="800" aria-label="Carte météo du jour"></canvas></div>
+      
+    </section>
+    <footer class="site-footer"><span>LA PETITE BOUTEILLE · MÉTÉO</span><span>PRÉVISIONS DU JOUR · 600 × 800</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

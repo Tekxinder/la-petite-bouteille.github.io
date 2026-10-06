@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdf9f2">
+  <title>Atelier Actualités — La Petite Bouteille</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../theme.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="masthead app-masthead">
+      <a class="masthead-mark" href="../index.html" aria-label="Retour au hub">LB</a>
+      <div class="masthead-copy">
+        <p class="eyebrow">LA PETITE BOUTEILLE</p>
+        <h1>Atelier Actualités<span>.</span></h1>
+      </div>
+      <div class="masthead-date"><span id="todayHeader"></span></div>
+    </header>
+
+    <div class="workbench">
+      <section class="editor" aria-label="Composition de la page d’actualité">
+        <div class="section-head section-head--article"><span class="step">01</span><div><p class="eyebrow">COMPOSER VOTRE PAGE</p><h2>Votre article</h2></div></div>
+        <label class="field-label" for="articleTitle">Titre</label>
+        <input id="articleTitle" class="text-field" maxlength="180" placeholder="Écrivez le titre de votre article">
+        <label class="field-label" for="articleSummary">Résumé <span>à rédiger ou corriger</span></label>
+        <textarea id="articleSummary" rows="4" maxlength="700" placeholder="Résumez l’information en quelques phrases, avec vos propres mots."></textarea>
+        <div class="two-fields">
+          <label><span class="field-label">Catégorie</span><select id="articleCategory"><option>Politique</option><option>International</option><option>Sciences & technologie</option><option>Environnement</option><option>Économie</option><option>Culture</option><option>Sport</option><option>Santé</option><option>Société</option></select></label>
+          <label><span class="field-label">Date</span><input id="articleDate" class="text-field" maxlength="40" placeholder="28 septembre 2026"></label>
+        </div>
+        <label class="field-label" for="articleSource">Source</label>
+        <input id="articleSource" class="text-field" maxlength="100" placeholder="Média ou domaine source">
+        <label class="field-label" for="photoFile">Image de l’article <span>facultative</span></label>
+        <input id="photoFile" class="file-field" type="file" accept="image/*">
+        <details class="settings">
+          <summary>Réglages de la trame photo</summary>
+          <div class="settings-grid">
+            <div><span>Résolution d’entrée</span><b>96 px/pouce</b></div>
+            <div><span>Résolution de sortie</span><b>25 px/pouce</b></div>
+            <div><span>Mode</span><b>Trame de demi-teintes</b></div>
+            <div><span>Linéature · angle</span><b>53 lignes/pouce · 45°</b></div>
+            <div><span>Forme de trame</span><b>Losange</b></div>
+            <div><span>Photo</span><b>Fixe en haut à droite</b></div>
+            <label class="image-adjustment" for="brightnessSlider"><span>Luminosité <output id="brightnessValue" for="brightnessSlider">100 %</output></span><input id="brightnessSlider" type="range" min="0" max="200" value="100"></label>
+            <label class="image-adjustment" for="contrastSlider"><span>Contraste <output id="contrastValue" for="contrastSlider">100 %</output></span><input id="contrastSlider" type="range" min="0" max="200" value="100"></label>
+          </div>
+        </details>
+        <p id="photoStatus" class="helper">La photo est tramée automatiquement pour le rendu journal.</p>
+        </section>
+
+      <section class="preview-column" aria-label="Aperçu de la page d’actualité">
+        <div class="preview-bar"><span>APERÇU DE LA UNE</span><span>600 × 800</span></div>
+        <div class="poster-frame"><canvas id="poster" width="600" height="800"></canvas></div>
+        
+      </section>
+    </div>
+    <footer class="page-footer site-footer"><span>LA PETITE BOUTEILLE · ACTUALITÉS</span><span>Article · 600 × 800</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,41 @@
+@font-face{font-family:'FFF Temperature';src:url('meteo/assets/fonts/fff_spacedust.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'FFF Ville';src:url('meteo/assets/fonts/FFF Intelligent Thin Condensed.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'FFF Urban';src:url('meteo/assets/fonts/FFF Urban Bold Extended.ttf') format('truetype');font-display:swap}
+:root{color-scheme:light;--ink:#28231d;--paper:#fdf9f2;--ground:#f2eee7;--muted:#81796f;--line:#e3dbcf;--red:#be5e3d;--rust:#be5e3d;--orange:#be5e3d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'FFF Ville','Arial Narrow',sans-serif;min-height:100vh}
+h1,h2,h3{color:var(--ink);font-family:'FFF Urban',Arial,sans-serif;letter-spacing:-.025em}
+h1{font-size:clamp(28px,3.6vw,42px);line-height:1.08;font-weight:400;letter-spacing:-.04em;margin:0}
+h2{font-size:21px;line-height:1.2;font-weight:400;margin:0}
+.hub-shell,.page-shell,.layout{max-width:1120px;margin:0 auto;padding:48px 30px 64px}
+.masthead{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:18px;align-items:center;padding:0 0 19px;border-bottom:2px solid var(--ink);box-shadow:0 5px 0 -2px var(--ink)}
+.app-masthead{grid-column:1/-1}.app-masthead h1 span{color:var(--rust)}
+.masthead-mark{width:56px;height:56px;display:grid;place-items:center;background:var(--ink);color:var(--paper);font:18px 'FFF Urban',Arial,sans-serif;letter-spacing:-.08em;text-decoration:none}
+.masthead-mark:hover{background:#453b30;color:var(--paper)}
+.eyebrow{font:11px 'FFF Ville','Courier New',monospace;letter-spacing:.09em;color:var(--red);margin:0 0 6px}
+.subtitle{font:15px/1.45 'FFF Ville','Arial Narrow',sans-serif;color:#71695f;margin:7px 0 0}
+.masthead-date{display:grid;justify-items:end;gap:7px;font:12px 'FFF Ville','Courier New',monospace;letter-spacing:.07em;text-transform:capitalize;color:#574f45}
+.masthead-date .date-line{display:flex;align-items:center;gap:9px;margin:0}
+.issue{font:9px 'FFF Ville','Courier New',monospace;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.section-kicker{font:10px 'FFF Ville','Courier New',monospace;letter-spacing:.08em;color:var(--muted)}
+input,select,textarea{font-family:'FFF Ville','Arial Narrow',sans-serif;border-radius:0;color:var(--ink);background:#fffdf9;border-color:#d2c9bc}
+input:focus,select:focus,textarea:focus{border-color:#60564a;box-shadow:0 0 0 2px #28231d12}
+.button,.search-row button,.export-button,.add-submit{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 15px;border:1px solid var(--ink);border-radius:0;min-height:44px;font:12px 'FFF Ville','Arial Narrow',sans-serif;letter-spacing:.02em;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.search-row button span,.add-submit span{margin-left:0}
+.button--light,.button--test{background:#eae5dc;color:var(--ink);border-color:var(--line)}
+.button--light:hover,.button--test:hover,.button--test[aria-pressed="true"]{background:#ded7cc;border-color:#bdb2a5}
+.button--dark,.search-row button,.export-button,.add-submit{background:var(--ink);color:var(--paper)}
+.button--dark:hover,.search-row button:hover,.export-button:hover,.add-submit:hover{background:#453b30;border-color:#453b30}
+.button:focus-visible,.search-row button:focus-visible,.export-button:focus-visible,.add-submit:focus-visible,.remove-app:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.button:disabled,.search-row button:disabled,.export-button:disabled,.add-submit:disabled{opacity:.6;cursor:wait}
+.remove-app{min-height:30px;padding:0 9px;border:1px solid var(--line);border-radius:0;background:#eae5dc;color:#665c51;font:11px 'FFF Ville','Arial Narrow',sans-serif;text-decoration:none;cursor:pointer}
+.remove-app:hover{background:#ded7cc;color:var(--ink)}
+.city-choice{border-radius:0;border-color:var(--line);background:var(--paper)}
+.city-choice:has(input:checked){border-color:var(--rust);background:#fff7f1}
+.app-card{background:var(--paper);border-color:var(--line);box-shadow:3px 3px 0 #28231d12}
+.app-card:hover{border-color:#a99c8d;box-shadow:5px 7px 0 #28231d18}
+.paper-frame,.poster-frame{padding:8px;background:#fff;box-shadow:0 16px 42px #473c2a1c,0 2px 8px #473c2a0b}
+.preview-heading,.preview-bar{font:11px 'FFF Ville','Courier New',monospace;letter-spacing:.07em;color:#685f55}
+.site-footer{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:30px;padding:12px 0 0;border-top:3px solid var(--ink);box-shadow:0 -5px 0 -2px var(--ink);font:9px 'FFF Ville','Courier New',monospace;letter-spacing:.08em;color:#756c60}
+@media(max-width:760px){.hub-shell,.page-shell,.layout{max-width:520px;padding:30px 22px 45px}.masthead{grid-template-columns:46px minmax(0,1fr);gap:12px}.masthead-mark{width:46px;height:46px;font-size:16px}.masthead-date{grid-column:2;display:flex;justify-items:start;justify-content:flex-start;gap:10px;align-items:center;text-align:left}.layout{grid-template-columns:1fr;gap:35px}.layout>.masthead{grid-column:1}.subtitle{font-size:14px}}
+@media(max-width:470px){.hub-shell,.page-shell,.layout{padding:22px 15px 36px}.masthead{grid-template-columns:38px minmax(0,1fr);gap:9px;padding-bottom:15px}.masthead-mark{width:38px;height:38px;font-size:13px}.masthead-date{font-size:10px}.masthead-date .issue{font-size:8px}.eyebrow{font-size:9px}h1{font-size:25px}.subtitle{font-size:13px}.paper-frame,.poster-frame{padding:6px}.site-footer{align-items:flex-start;flex-direction:column;gap:6px;font-size:8px}}

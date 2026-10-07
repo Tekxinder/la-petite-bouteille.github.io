@@ -30,16 +30,16 @@
         <button class="button button--test" id="testButton" type="button" aria-pressed="false">▧ Tester les pictogrammes</button>
       </div>
       <p id="status" class="status" role="status">Chargement des prévisions…</p>
-      <p class="credit">Prévisions du jour via <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> · mise à jour à l’export.</p>
+      <p class="credit">relevé via <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></p>
     </section>
 
     <section class="preview-wrap" aria-label="Aperçu de la carte météo">
-      <div class="preview-heading"><span>APERÇU</span><span id="previewDate"></span></div>
+      <div class="preview-heading"><span>APERÇU</span><button class="download-link" type="button" id="downloadCanvas">Télécharger</button></div>
       <div class="paper-frame"><canvas id="weatherCanvas" width="600" height="800" aria-label="Carte météo du jour"></canvas></div>
       
     </section>
     <footer class="site-footer"><span>LA PETITE BOUTEILLE · MÉTÉO</span><span>PRÉVISIONS DU JOUR · 600 × 800</span></footer>
   </main>
-  <script src="app.js"></script>
+  <script src="app.js?v=save-canvas-20261007"></script>
 </body>
 </html>

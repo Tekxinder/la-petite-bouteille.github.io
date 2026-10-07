@@ -4,6 +4,20 @@ const PHOTO_BOX = { x: 170, y: 171, width: 354, height: 359 };
 const DOT_CELL = 4.2; // close visual approximation of a 53 lpi, 45° diamond screen at this canvas size
 const canvas = document.querySelector('#poster');
 const ctx = canvas.getContext('2d');
+const downloadButton = document.querySelector('#downloadCanvas');
+function saveCanvas() {
+  try {
+    const link = document.createElement('a');
+    link.download = 'actualite-' + new Date().toISOString().slice(0, 10) + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  } catch (error) {
+    console.error('News canvas save failed.', error);
+    setMessage(document.querySelector('#photoStatus'), 'Impossible de sauvegarder le canevas en PNG.', true);
+  }
+}
+
+downloadButton.addEventListener('click', saveCanvas);
 const state = { template: null, photo: null, photoCanvas: null, photoId: 0, imageUrl: null, brightness: 100, contrast: 100 };
 const fields = {
   title: document.querySelector('#articleTitle'), summary: document.querySelector('#articleSummary'),
@@ -211,6 +225,10 @@ function drawPhotoBox() {
 }
 
 function drawPoster() {
+  drawPosterCanvas();
+}
+
+function drawPosterCanvas() {
   if (!state.template) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(state.template, 0, 0, 600, 800);

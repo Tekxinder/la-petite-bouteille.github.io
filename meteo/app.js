@@ -22,6 +22,21 @@ const icons = {
 };
 const canvas = document.querySelector('#weatherCanvas');
 const ctx = canvas.getContext('2d');
+const downloadButton = document.querySelector('#downloadCanvas');
+function saveCanvas() {
+  try {
+    const link = document.createElement('a');
+    const date = new Intl.DateTimeFormat('fr-CA', { timeZone: 'Europe/Paris' }).format(new Date());
+    link.download = 'meteo-france-' + date + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  } catch (error) {
+    console.error('Weather canvas save failed.', error);
+    setStatus('Impossible de sauvegarder le canevas en PNG.', true);
+  }
+}
+
+downloadButton.addEventListener('click', saveCanvas);
 const statusEl = document.querySelector('#status');
 const state = { selected: new Set(preset), weather: new Map(), images: {}, outlines: {}, requestId: 0, testMode: false };
 const dateFmt = new Intl.DateTimeFormat('fr-FR', {
@@ -30,7 +45,6 @@ const dateFmt = new Intl.DateTimeFormat('fr-FR', {
 const dateText = dateFmt.format(new Date());
 const headerDateText = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long', day: 'numeric', month: 'long' }).format(new Date());
 document.querySelector('#todayHeader').textContent = headerDateText;
-document.querySelector('#previewDate').textContent = `Météo du ${dateText}`;
 
 function makeChoices() {
   const root = document.querySelector('#cityList');
@@ -186,15 +200,21 @@ function drawCity(city, info, x, y) {
 }
 
 function draw() {
+  drawWeatherCanvas();
+}
+
+function drawWeatherCanvas() {
   if (!state.images['Journal.png']) return;
   ctx.clearRect(0, 0, 600, 800);
   ctx.drawImage(state.images['Journal.png'], 0, 0, 600, 800);
 
   // Date is printed above the map area on the exported 600x800 newspaper.
-  ctx.textAlign = 'center';
+  ctx.textAlign = 'left';
   ctx.fillStyle = '#28231d';
-  ctx.font = '16px "FFF Urban", Arial, sans-serif';
-  ctx.fillText(`Météo du ${dateText}`, 315, 176, 470);
+  ctx.font = '10px "FFF Urban", sans-serif';
+   const sourceLabel = `Météo du ${dateText}`;
+  const footerText =`${sourceLabel.toLocaleUpperCase('fr-FR')}`;
+  ctx.fillText(footerText, 78, 741, 450);
 
   // Draw the supplied map at full opacity and at a larger size: its original dark ink is unchanged.
   ctx.drawImage(state.images['Carte.png'], 54, 190, 492, 530);

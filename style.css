@@ -34,7 +34,7 @@ legend span{font-size:12px;font-weight:400;color:var(--muted)}
 .preview-heading{display:flex;justify-content:space-between;gap:10px;font-size:12px;letter-spacing:.06em;color:#685f55;padding:0 2px 12px}
 .preview-heading span:last-child{text-align:right}
 .paper-frame{padding:8px;background:white;box-shadow:0 20px 55px #473c2a20,0 2px 8px #473c2a0b}
-.paper-frame canvas{display:block;width:100%;height:auto}
+.paper-frame canvas,.paper-frame .canvas-preview-image{display:block;width:100%;height:auto}
 .preview-caption{text-align:center;font-size:12px;color:#8d8478;margin-top:14px}
 @media(max-width:760px){.layout{grid-template-columns:1fr;gap:35px;padding:30px 22px 45px;max-width:520px}.controls{padding:0}.preview-wrap{max-width:440px}h1{font-size:25px}}
 @media(max-width:380px){.layout{padding-left:16px;padding-right:16px}.city-list{gap:7px}.city-choice{padding:9px 8px;font-size:14px}legend{gap:8px}legend span{font-size:11px}.preview-heading{font-size:10px}}
